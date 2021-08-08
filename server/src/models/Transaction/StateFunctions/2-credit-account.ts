@@ -11,7 +11,7 @@ export const creditAccount: StateFunction = {
     });
   },
   run: (transactionDoc)=>{
-    return WalletModel.update(
+    return WalletModel.updateOne(
       { user: transactionDoc.to },
       {
         $inc: { balance: transactionDoc.balance },
@@ -23,7 +23,7 @@ export const creditAccount: StateFunction = {
     });
   },
   revert(transactionDoc){
-    return WalletModel.update(
+    return WalletModel.updateOne(
       { user: transactionDoc.to },
       {
         $inc: { balance: (

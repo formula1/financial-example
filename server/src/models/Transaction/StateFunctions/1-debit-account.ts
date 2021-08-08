@@ -16,7 +16,7 @@ export const debitAccount: StateFunction = {
   },
   run: (transactionDoc)=>{
 
-    return WalletModel.update(
+    return WalletModel.updateOne(
       { user: transactionDoc.from, balance: { $gte: transactionDoc.balance }},
       {
         $inc: { balance: (
@@ -32,7 +32,7 @@ export const debitAccount: StateFunction = {
     });
   },
   revert(transactionDoc){
-    return WalletModel.update(
+    return WalletModel.updateOne(
       { user: transactionDoc.from },
       {
         $inc: { balance: transactionDoc.balance },

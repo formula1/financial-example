@@ -10,13 +10,13 @@ export const finishTransaction: StateFunction = {
     transactionDoc.finished = true;
     return transactionDoc.save().then(()=>{
       return Promise.all([
-        WalletModel.update(
+        WalletModel.updateOne(
           { user: transactionDoc.to },
           {
             $pull: { toTransactions: transactionDoc._id }
           }
         ).exec(),
-        WalletModel.update(
+        WalletModel.updateOne(
           { user: transactionDoc.from },
           {
             $pull: { fromTransactions: transactionDoc._id }
