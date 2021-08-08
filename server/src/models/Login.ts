@@ -26,7 +26,7 @@ interface IUserLoginBasic extends Document, IUserLoginBasicMethods {
 }
 
 const UserLoginBasicSchema = new Schema({
-  user: ObjectId,
+  user: { type: ObjectId, ref: "User" },
   email: {
     type: String,
     unique: true,

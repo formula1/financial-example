@@ -16,8 +16,8 @@ const ObjectId = Types.ObjectId;
 
 const TransactionStateSchema = new Schema({
   created: { type: Date, default: Date.now() },
-  from: { type: ObjectId, required: true },
-  to: { type: ObjectId, required: true },
+  from: { type: ObjectId, required: true, ref: 'User'  },
+  to: { type: ObjectId, required: true, ref: 'User' },
   balance: { type: Long, required: true},
   finished: {
     type: Boolean,

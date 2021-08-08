@@ -28,11 +28,12 @@ const WalletSchema = new Schema({
   user: {
     type: ObjectId,
     required: true,
-    unique: true
+    unique: true,
+    ref: 'User'
   },
   balance: { type: Long, default: 0 },
-  fromTransactions: { type: [ObjectId], default: []},
-  toTransactions: { type: [ObjectId], default: []},
+  fromTransactions: [{ type: ObjectId, ref: "TransactionState"}],
+  toTransactions: [{ type: ObjectId, ref: "TransactionState"}],
 });
 
 WalletSchema.static(
