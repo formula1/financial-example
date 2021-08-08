@@ -4,6 +4,7 @@ import { Header } from "./template/Header"
 import { UserIndex } from "./User";
 import { RequireUser } from "./User/RequireUser";
 import { UserList } from "./Users/list";
+import { UnfinishedTransactions } from "./Transactions"
 import { Home } from "./Home"
 import { Page404 } from "./404";
 import {
@@ -45,6 +46,11 @@ export function IndexView(){
                 )
               }}
             />
+            <Route exact path="/transactions" >
+              <RequireUser>
+                <UnfinishedTransactions />
+              </RequireUser>
+            </Route>
             <Route exact path="/users">
               <RequireUser>
                 <UserList />

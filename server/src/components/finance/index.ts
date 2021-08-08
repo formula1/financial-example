@@ -12,6 +12,24 @@ export function createRouter(){
   const router = Router()
 
   router.get(
+    "/unfinished-transactions/",
+    passport.authenticate('jwt', {session: false}),
+    async (req, res, next)=>{
+      const user = req.user as IUser;
+      if(!user){
+        console.error("Not logged in")
+        return next({ status: 403, message: "Not logged in"})
+      }
+      try {
+        var trans = await TransactionModel.find({ finised: false })
+        res.status(200).json(trans)
+      }catch(e){
+        next(e)
+      }
+    }
+  )
+
+  router.get(
     "/transactions/:id",
     passport.authenticate('jwt', {session: false}),
     async (req, res, next)=>{

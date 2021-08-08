@@ -27,6 +27,9 @@ export function Header(){
           <Link to="/users">Users</Link>
         </li>
         <li>
+          <Link to="/transactions">Unfinished Transactions</Link>
+        </li>
+        <li>
           <Link to="/self">Self</Link>
         </li>
         {
