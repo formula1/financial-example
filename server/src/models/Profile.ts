@@ -12,7 +12,7 @@ const ProfileSchema = new Schema({
   username: { type : String, require: true },
 });
 
-const ProfileModel: Model<Document> = model('Profile', ProfileSchema);
+const ProfileModel: Model<IProfile> = model('Profile', ProfileSchema);
 
 export {
   IProfile,

@@ -14,7 +14,7 @@ const UserSchema = new Schema({
   permissions: [{ type: String }]
 });
 
-const UserModel: Model<Document> = model('User', UserSchema);
+const UserModel: Model<IUser> = model('User', UserSchema);
 
 export {
   IUser,
