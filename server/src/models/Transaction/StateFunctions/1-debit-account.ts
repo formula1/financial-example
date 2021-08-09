@@ -1,10 +1,6 @@
 import * as mongoose from "mongoose";
 import { WalletModel } from "../../Wallet"
 import { StateFunction } from "../types"
-import {
-  Long
-} from "../../types/long"
-
 
 export const debitAccount: StateFunction = {
   name: "Debit the From account",
