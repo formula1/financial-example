@@ -11,7 +11,7 @@ interface IUser extends Document {
 const UserSchema = new Schema({
   name: String,
   created: { type: Number, default: Date.now },
-  permissions: { type: [String], default: [] }
+  permissions: [{ type: String }]
 });
 
 const UserModel: Model<Document> = model('User', UserSchema);
