@@ -9,6 +9,7 @@ services:
     command: "npm run start:dev"
     env_file:
         - ./env-files/shared.public.env
+        - ./env-files/stripe.hidden.env
     ports:
       - 3000:8080
     restart: always
@@ -23,8 +24,10 @@ services:
     env_file:
         - ./env-files/shared.public.env
         - ./env-files/db.private.env
+        - ./env-files/stripe.hidden.env
     ports:
       - 8080:8080
+    restart: always
 
   mongo:
     image: mongo

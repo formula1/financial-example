@@ -8,8 +8,12 @@ import { TransactionModel } from "../../models/Transaction"
 import { IUser } from "../../models/User";
 import { getTransactions } from "./get-transactions"
 
+import { createRouter as stripeRouter } from "./stripe/router";
+
 export function createRouter(){
   const router = Router()
+
+  router.use("/stripe", stripeRouter());
 
   router.get(
     "/unfinished-transactions/",
