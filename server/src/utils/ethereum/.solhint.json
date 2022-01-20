@@ -1,0 +1,8 @@
+{
+  "extends": "solhint:recommended",
+  "plugins": [],
+  "rules": {
+    "indent": [2, 2],
+    "event-name-camelcase": "warn"
+  }
+}
