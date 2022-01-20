@@ -4,6 +4,10 @@ import { Router } from "express";
 
 passport.use(jwtStrategy);
 
+export function jwtSession(){
+  return passport.authenticate('jwt', {session: false})
+}
+
 function passportSession(){
   const router = Router()
 
@@ -12,7 +16,7 @@ function passportSession(){
     next();
   })
 
-  router.use(passport.initialize());
+  // router.use(passport.initialize());
   // router.use(passport.session());
 
   // router.use((req, res, next)=>{
