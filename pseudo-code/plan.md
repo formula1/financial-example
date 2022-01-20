@@ -23,3 +23,6 @@ view
 server
 - wallet
 - transaction
+  - make transaction
+  - deposit value
+  - withdraw value
